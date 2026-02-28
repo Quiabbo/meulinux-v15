@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  --color-primary: #ff3a02;
+  --color-dark: #1a1a1a;
+  --color-light: #f5f5f5;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-white text-dark antialiased transition-colors duration-300 min-h-screen relative text-left;
+  }
+  
+  html.dark body {
+    @apply bg-[#121212] text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+
+  .container-custom {
+    @apply w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8;
+  }
+}
+
+/* Typography for Blog Posts */
+.prose {
+  @apply text-dark leading-relaxed font-sans text-left;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply font-display font-bold text-dark mt-8 mb-4 text-left;
+}
+
+.prose p {
+  @apply mb-6 text-lg text-gray-700 text-left;
+}
+
+.prose pre {
+  @apply bg-black text-white p-4 rounded-lg overflow-x-auto my-6 font-mono text-sm border border-white/5;
+}
+
+.prose code {
+  @apply bg-black text-white px-1.5 py-0.5 rounded font-mono text-xs;
+}
+
+.prose pre code {
+  @apply p-0 bg-transparent text-inherit text-sm;
+}
+
+.prose strong {
+  @apply text-dark font-bold;
+}
+
+.prose ul, .prose ol {
+  @apply mb-6 ml-6;
+}
+
+.prose li {
+  @apply mb-2 text-gray-700 text-left;
+}
+
+.dark .prose, .dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4, .dark .prose strong {
+  @apply text-white;
+}
+
+.dark .prose p, .dark .prose li {
+  @apply text-white/70;
+}
+
+/* Dark mode overrides for common sections */
+.dark .bg-white, .dark .bg-light, .dark .bg-gray-100 {
+  @apply bg-[#1a1a1a] text-white;
+}
+
+.bg-white, .bg-light, .bg-gray-50, .bg-gray-100, .bg-dark {
+}
+
+.dark .bg-white, .dark .bg-light, .dark .bg-gray-100, .dark .bg-dark {
+}
+
+.dark .bg-gray-50, .dark .bg-primary\/5 {
+  @apply bg-white/5 border-white/10;
+}
+
+.distro-card {
+  background-image: none !important;
+}
+
+.dark .distro-card {
+  @apply bg-[#1a1a1a] border-white/10;
+  background-image: none !important;
+}
+
+.dark .text-gray-400:not(.search-icon), .dark .text-gray-500, .dark .text-gray-600, .dark .text-gray-700, .dark .text-white\/60, .dark .text-white\/70, .dark .text-dark {
+  @apply text-white/50;
+}
+
+.dark .text-dark {
+  @apply text-white;
+}
+
+.dark .home-filter-btn {
+  @apply bg-[#1a1a1a] text-white/70 border border-white/10 hover:bg-white/5;
+}
+
+.dark .home-filter-btn.active {
+  @apply bg-primary text-white border-primary;
+}
+
+.dark input, .dark select, .dark textarea {
+  @apply bg-[#262626] border-white/10 text-white focus:border-primary;
+}
+
+.dark .search-input {
+  @apply bg-white text-[#1a1a1a];
+}
+
+.dark .border-gray-100, .dark .border-gray-200 {
+  @apply border-white/10;
+}
+
+.grid-background {
+}
+
+.animated-line {
+  position: absolute;
+  background: rgba(255, 58, 2, 0.2);
+  transition: opacity 0.5s ease-in-out;
+}
